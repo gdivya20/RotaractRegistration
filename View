@@ -1,0 +1,114 @@
+@model RotaractRegistration.Models.Request.RequestData
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><img src="https://rotaractdistrict3190.org/wp-content/uploads/2022/01/ROTAFEST-01-Logo-1536x656.png" style="text-align:center" width="400" height="200" alt="alternatetext"></h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @*<h4>RotaFest Events</h4>*@
+    <h3 class="elementor-heading-title elementor-size-default"><span style="color:#E93B81"><b>RotaFest Events Onspot Registrations</b></span></h3>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br>
+
+    <h4><span style="font-family:georgia,garamond,serif;font-size:20px;font-style:italic; color:#E93B81"> <b>Which event(s) will you be attending? Please select all that apply.</b></span></h4>
+    <ul class="menus">
+        <br>
+        <li><input type="checkbox" name="edible[]" value="999"> <span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Fashion Show</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="599"> <span style="font-family:Arial,serif;font-size:20px;font-style:normal; "> <b>&nbsp;&nbsp;Street Play</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="999"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Group Dance</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="149"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;3190's Got Talent</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="499"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Valorant</b></span></li>
+        <br>
+
+        <li><input type="checkbox" name="edible[]" value="199"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Treasure Hunt</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="199"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Cooking Without Fire</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="99"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Face Painting</b></span></li>
+        <br>
+
+        <li><input type="checkbox" name="edible[]" value="99"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Photography</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="99"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Poster Making</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="199"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Beg Borrow Steal</b></span></li>
+        <br>
+
+        <li><input type="checkbox" name="edible[]" value="199"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Business Plan</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="99"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;The Gobble War</b></span></li>
+        <br>
+
+        <li><input type="checkbox" name="edible[]" value="199"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Best Manager</b></span></li>
+        <br>
+        <li><input type="checkbox" name="edible[]" value="149"><span style="font-family:Arial,serif;font-size:20px;font-style:normal; "><b>&nbsp;&nbsp;Pop Culture Quiz</b></span></li>
+        <br>
+    </ul>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-primary btn-raised w-25" />
+            <input type="Reset" class="btn btn-primary btn-raised w-25" value="Reset" id="Reset" onClick="window.location.reload();" />
+        </div>
+    </div>
+</div>
+
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
