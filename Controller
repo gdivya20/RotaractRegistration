@@ -1,0 +1,61 @@
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using RotaractRegistration.Models.Request;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace RotaractRegistration.Controllers
+{
+    public class DataController : Controller
+    {
+
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "9SYeqbF102ir8eOlVZzoFdmnRIj9pmCSjagTXOLU",
+            BasePath = "https://registereddata-e5b3a-default-rtdb.firebaseio.com/"
+        };
+        // GET: Data
+
+        IFirebaseClient client;
+       
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Create(RequestData requestData)
+        {
+            try
+            {
+                AddRequestDatatoFirebase(requestData);
+                ModelState.AddModelError(string.Empty, "Added Sucessfully");
+
+            }
+            catch (Exception ex)
+                {
+                ModelState.AddModelError(string.Empty, ex.Message);
+
+            }
+            return View();
+        }
+
+        private void AddRequestDatatoFirebase(RequestData requestData)
+        {
+            client = new FireSharp.FirebaseClient(config);
+            var data = requestData;
+           // PushResponse response = client.Push("RequestData/", data);
+            //if(data.Gender==1)
+            SetResponse setResponse=client.Set(data.Name, data);
+
+        }
+
+    }
+}
